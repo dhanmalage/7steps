@@ -1,4 +1,4 @@
-/*! 
+/*!
  * SmartWizard v4.2.2
  * The awesome jQuery step wizard plugin with Bootstrap support
  * http://www.techlaboratory.net/smartwizard

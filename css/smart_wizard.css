@@ -113,12 +113,12 @@
 
 .sw-theme-default > ul.step-anchor > li.done > a {
     border: none !important;
-    color: #000 !important;
+    color: #152b75 !important;
     background: transparent !important;
 }
 
 .sw-theme-default > ul.step-anchor > li.done > a::after {
-    background: #5cb85c;
+    background: #152b75;
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
@@ -126,12 +126,12 @@
 
 .sw-theme-default > ul.step-anchor > li.danger > a {
     border: none !important;
-    color: #d9534f !important;
+    color: #a94442 !important;
     background: transparent !important;
 }
 
 .sw-theme-default > ul.step-anchor > li.danger > a::after {
-    background: #d9534f;
+    background: #a94442;
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);

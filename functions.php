@@ -22,13 +22,64 @@ function steps_scripts() {
 	wp_enqueue_style('bootstrap', get_template_directory_uri().'/css/bootstrap.min.css');
 	wp_enqueue_style('font-awesome', get_template_directory_uri().'/css/font-awesome.min.css');
 	wp_enqueue_style('smart_wizard', get_template_directory_uri().'/css/smart_wizard.css');
+	wp_enqueue_style('file-upload-css', get_template_directory_uri().'/file-upload/css/jquery.fileupload.css');
 	wp_enqueue_style('styles', get_template_directory_uri().'/css/styles.css');
 	wp_enqueue_style('main-style', get_stylesheet_uri());
 
 	wp_enqueue_script('bootstrap', get_template_directory_uri().'/js/bootstrap.min.js', array('jquery'), '', true);
 	wp_enqueue_script('smartWizard', get_template_directory_uri().'/js/jquery.smartWizard.js', array(), '', true);
-	wp_enqueue_script('function', get_template_directory_uri().'/js/scripts.js', array('jquery'), '', true);
+
+	wp_enqueue_script('fileUploadUiWidget', get_template_directory_uri().'/file-upload/js/vendor/jquery.ui.widget.js', array('jquery'), '', true);
+	wp_enqueue_script('fileUploadPreview', get_template_directory_uri().'/file-upload/js/vendor/load-image.all.min.js', array('jquery'), '', true);
+	wp_enqueue_script('fileUploadNoXHR', get_template_directory_uri().'/file-upload/js/jquery.iframe-transport.js', array('jquery'), '', true);
+	wp_enqueue_script('fileUploadBasic', get_template_directory_uri().'/file-upload/js/jquery.fileupload.js', array('jquery'), '', true);
+	wp_enqueue_script('fileUploadProcess', get_template_directory_uri().'/file-upload/js/jquery.fileupload-process.js', array('jquery'), '', true);
+	wp_enqueue_script('fileUploadImagePreview', get_template_directory_uri().'/file-upload/js/jquery.fileupload-image.js', array('jquery'), '', true);
+	wp_enqueue_script('fileUploadValidate', get_template_directory_uri().'/file-upload/js/jquery.fileupload-validate.js', array('jquery'), '', true);
+
+	wp_enqueue_script('bootstrapValidator', get_template_directory_uri().'/js/validator.min.js', array('jquery'), '', true);
+
+	wp_enqueue_script('functions', get_template_directory_uri().'/js/scripts.js', array('jquery'), '', true);
 }
 
 add_action('wp_enqueue_scripts', 'steps_scripts');
 
+
+
+function wp_ajax_enqueue() {
+	// The wp_localize_script allows us to output the ajax_url path for our script to use.
+	wp_localize_script(
+		'functions',
+		'functions_ajax_obj',
+		array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) )
+	);
+}
+add_action( 'wp_enqueue_scripts', 'wp_ajax_enqueue' );
+
+function steps7_ajax_request() {
+
+	// The $_REQUEST contains all the data sent via ajax
+	if ( isset($_REQUEST) ) {
+
+		$fruit = $_REQUEST['fruit'];
+
+		// Let's take the data that was sent and do something with it
+		if ( $fruit == 'Banana' ) {
+			$fruit = 'Apple';
+		}
+
+		// Now we'll return it to the javascript function
+		// Anything outputted will be returned in the response
+		echo $fruit;
+
+		// If you're debugging, it might be useful to see what was sent in the $_REQUEST
+		// print_r($_REQUEST);
+
+	}
+
+	// Always die in functions echoing ajax content
+	die();
+}
+
+// If you wanted to also use the function for non-logged in users (in a theme for example)
+add_action( 'wp_ajax_nopriv_steps7_ajax_request', 'steps7_ajax_request' );
