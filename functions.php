@@ -39,6 +39,8 @@ function steps_scripts() {
 
 	wp_enqueue_script('bootstrapValidator', get_template_directory_uri().'/js/validator.min.js', array('jquery'), '', true);
 
+	wp_enqueue_script('paypalAPI', 'https://www.paypalobjects.com/api/checkout.js', '', '', true);
+
 	wp_enqueue_script('functions', get_template_directory_uri().'/js/scripts.js', array('jquery'), '', true);
 }
 
@@ -61,10 +63,39 @@ function steps7_ajax_request() {
 	// The $_REQUEST contains all the data sent via ajax
 	if ( isset($_REQUEST) ) {
 
-		$fruit = $_REQUEST['fruit'];
+		$email = $_REQUEST['email'];
+		$businessName = $_REQUEST['businessName'];
+		$industry = $_REQUEST['industry'];
+		$industryComment = $_REQUEST['industryComment'];
+		$numEmployees = $_REQUEST['numEmployees'];
+		$numYears = $_REQUEST['numYears'];
+		$domain = $_REQUEST['domain'];
+		$preferDomain = $_REQUEST['preferDomain'];
+		$socialFb = $_REQUEST['socialFb'];
+		$socialTw = $_REQUEST['socialTw'];
+		$socialIn = $_REQUEST['socialIn'];
+		$socialYo = $_REQUEST['socialYo'];
+		$socialVi = $_REQUEST['socialVi'];
+		$socialPi = $_REQUEST['socialPi'];
+		$mission = $_REQUEST['mission'];
+		$products = $_REQUEST['products'];
+		$team = $_REQUEST['team'];
+		$competitor1 = $_REQUEST['competitor1'];
+		$competitor2 = $_REQUEST['competitor2'];
+		$competitor3 = $_REQUEST['competitor3'];
+		$competitor4 = $_REQUEST['competitor4'];
+		$competitor5 = $_REQUEST['competitor5'];
+		$address1 = $_REQUEST['address1'];
+		$address2 = $_REQUEST['address2'];
+		$city = $_REQUEST['city'];
+		$state = $_REQUEST['state'];
+		$country = $_REQUEST['country'];
+		$zip = $_REQUEST['zip'];
+		$phone = $_REQUEST['phone'];
+		$images = $_REQUEST['images'];
 
 		// Let's take the data that was sent and do something with it
-		if ( $fruit == 'Banana' ) {
+		if ( $email != '' ) {
 			$fruit = 'Apple';
 		}
 

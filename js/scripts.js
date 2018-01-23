@@ -350,7 +350,7 @@ jQuery(function () {
              .append(uploadButton.clone(true).data(data));
              }
             */
-            node.append('<a href="#" class="image-cancel">x</a>');
+            node.append('<span class="image-cancel">x</span>');
             node.appendTo(data.context);
         });
     }).on('fileuploadprocessalways', function (e, data) {
@@ -495,16 +495,126 @@ jQuery('#prefer-domain')[0].oninput = function(){
 //jQuery('#submit').click(function(){
 //jQuery('.sw-btn-submit').click(function(){
 //jQuery('.sw-btn-group').on('click', '.sw-btn-submit', function(){
-/*
-jQuery(document).on('click', '.sw-btn-submit', function(e) {
-    jQuery('#dataModal').modal();
 
+jQuery("#terms-services").change(function() {
+    if(this.checked) {
+        jQuery('#dataModal').modal();
+    }
+});
+
+
+
+jQuery(document).on('click', '#dataSubmit', function(e) {
+
+    var email = jQuery('#homeEmail').val();
+    var businessName = jQuery('#business-name').val();
+    var industry = jQuery('#industry').val();
+    var industryComment = jQuery('#industry-comment').val();
+    var numEmployees = jQuery('input:radio[name=num-employees]').val();
+    var numYears = jQuery('#num-years').val();
+    var domain = jQuery('#domain').val();
+    var preferDomain = jQuery('#prefer-domain').val();
+    var socialFb = jQuery('#socialFb').val();
+    var socialTw = jQuery('#socialTw').val();
+    var socialIn = jQuery('#socialIn').val();
+    var socialYo = jQuery('#socialYo').val();
+    var socialVi = jQuery('#socialVi').val();
+    var socialPi = jQuery('#socialPi').val();
+    var mission = jQuery('#mission').val();
+    var products = jQuery('#products').val();
+    var team = jQuery('#team').val();
+    var competitor1 = jQuery('input:text[name=competitor1]').val();
+    var competitor2 = jQuery('input:text[name=competitor2]').val();
+    var competitor3 = jQuery('input:text[name=competitor3]').val();
+    var competitor4 = jQuery('input:text[name=competitor4]').val();
+    var competitor5 = jQuery('input:text[name=competitor5]').val();
+    var address1 = jQuery('#address1').val();
+    var address2 = jQuery('#address2').val();
+    var city = jQuery('#city').val();
+    var state = jQuery('#state').val();
+    var country = jQuery('#country').val();
+    var zip = jQuery('#zip').val();
+    var phone = jQuery('#phone').val();
+
+    var images = [];
+
+    //var imgno = 1;
+    jQuery('#files div a').each(function(){
+        var curImage = jQuery(this).attr("href");
+        jQuery("#formComplete").append('<input type="text" name="images[]" value="' + curImage + '">');
+        images.push(curImage);
+    });
+
+    var formHtml = '<input type="text" name="email" value="' + email + '">' +
+                    '<input type="text" name="businessName" value="' + businessName + '">' +
+                    '<input type="text" name="industry" value="' + industry + '">' +
+                    '<input type="text" name="industryComment" value="' + industryComment + '">' +
+                    '<input type="text" name="numEmployees" value="' + numEmployees + '">' +
+                    '<input type="text" name="numYears" value="' + numYears + '">' +
+                    '<input type="text" name="domain" value="' + domain + '">' +
+                    '<input type="text" name="preferDomain" value="' + preferDomain + '">' +
+                    '<input type="text" name="socialFb" value="' + socialFb + '">' +
+                    '<input type="text" name="socialTw" value="' + socialTw + '">' +
+                    '<input type="text" name="socialIn" value="' + socialIn + '">' +
+                    '<input type="text" name="socialYo" value="' + socialYo + '">' +
+                    '<input type="text" name="socialVi" value="' + socialVi + '">' +
+                    '<input type="text" name="socialPi" value="' + socialPi + '">' +
+                    '<input type="text" name="mission" value="' + mission + '">' +
+                    '<input type="text" name="products" value="' + products + '">' +
+                    '<input type="text" name="team" value="' + team + '">' +
+                    '<input type="text" name="competitor1" value="' + competitor1 + '">' +
+                    '<input type="text" name="competitor2" value="' + competitor2 + '">' +
+                    '<input type="text" name="competitor3" value="' + competitor3 + '">' +
+                    '<input type="text" name="competitor4" value="' + competitor4 + '">' +
+                    '<input type="text" name="competitor5" value="' + competitor5 + '">' +
+                    '<input type="text" name="address1" value="' + address1 + '">' +
+                    '<input type="text" name="address2" value="' + address2 + '">' +
+                    '<input type="text" name="city" value="' + city + '">' +
+                    '<input type="text" name="state" value="' + state + '">' +
+                    '<input type="text" name="country" value="' + country + '">' +
+                    '<input type="text" name="zip" value="' + zip + '">' +
+                    '<input type="text" name="phone" value="' + phone + '">';
+
+    jQuery("#formComplete").append(formHtml).submit();
+
+    //jQuery('#dataModal').modal();
+
+    /*
     // This does the ajax request
     jQuery.ajax({
         url: functions_ajax_obj.ajaxurl, // or example_ajax_obj.ajaxurl if using on frontend
         data: {
             'action': 'steps7_ajax_request',
-            'fruit' : fruit
+            'email' : email,
+            'businessName' : businessName,
+            'industry' : industry,
+            'industryComment' : industryComment,
+            'numEmployees' : numEmployees,
+            'numYears' : numYears,
+            'domain' : domain,
+            'preferDomain' : preferDomain,
+            'socialFb' : socialFb,
+            'socialTw' : socialTw,
+            'socialIn' : socialIn,
+            'socialYo' : socialYo,
+            'socialVi' : socialVi,
+            'socialPi' : socialPi,
+            'mission' : mission,
+            'products' : products,
+            'team' : team,
+            'competitor1' : competitor1,
+            'competitor2' : competitor2,
+            'competitor3' : competitor3,
+            'competitor4' : competitor4,
+            'competitor5' : competitor5,
+            'address1' : address1,
+            'address2' : address2,
+            'city' : city,
+            'state' : state,
+            'country' : country,
+            'zip' : zip,
+            'phone' : phone,
+            'images' : images
         },
         success:function(data) {
             // This outputs the result of the ajax request
@@ -514,6 +624,7 @@ jQuery(document).on('click', '.sw-btn-submit', function(e) {
             console.log(errorThrown);
         }
     });
+    */
 
 });
-*/
+

@@ -1,7 +1,5 @@
 <?php get_header();?>
 
-
-
 	<div class="container">
 
 		<div class="steps-home">
@@ -17,8 +15,8 @@
 
 							<h2>Get a website in 7 days</h2>
 
-							<p class="home-content">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur,
-								vel illum qui dolorem eum fugiat quo voluptas nulla pariatur</p>
+							<p class="home-content">In 7 easy steps, we'll ask you everything we need to know to build you an outstanding Smart-Site, that looks beautiful and works hard for your business.
+								Just answer these simple but important questions and in 7 days we'll have your new site launched!</p>
 
 							<div class="form-group">
 								<label for="home-email">Email address</label>
@@ -56,11 +54,45 @@
 									<label for="industry">What industry are you in?</label>
 									<p class="instructions">Please select one and select "other" with a comment if your industry isn't listed.</p>
 									<div class="industry-buttons">
-										<span>Accommodation & Hospitality</span>
+										<span>Accommodation &amp; Hospitality</span>
 										<span>Accounting</span>
 										<span>Administrative Services</span>
 										<span>Advertising</span>
 										<span>Agriculture</span>
+										<span>Architecture</span>
+										<span>Automotive</span>
+										<span>Construction</span>
+										<span>Consulting</span>
+										<span>Design</span>
+										<span>Education</span>
+										<span>Engineering</span>
+										<span>Film</span>
+										<span>Finance</span>
+										<span>Fishing &amp; Hunting</span>
+										<span>Forestry</span>
+										<span>Food Services</span>
+										<span>Government</span>
+										<span>Healthcare</span>
+										<span>Insurance</span>
+										<span>I'm an individual</span>
+										<span>Information Technology</span>
+										<span>Internet</span>
+										<span>Legal</span>
+										<span>Manufacturing</span>
+										<span>Marketing</span>
+										<span>Mining</span>
+										<span>Non-Profit</span>
+										<span>Public Relations</span>
+										<span>Real Estate</span>
+										<span>Recreation</span>
+										<span>Retail</span>
+										<span>Scientific Services</span>
+										<span>Social Assistance</span>
+										<span>Software</span>
+										<span>Support Services</span>
+										<span>Technical Services</span>
+										<span>Telecommunications</span>
+										<span>Transportations</span>
 										<span>Other</span>
 									</div>
 								</div>
@@ -121,12 +153,12 @@
 
 								<div class="form-group social-links">
 									<label for="social-links">Help us find you on social media so we can learn more about your business. Enter your social handles or links.</label>
-									<input type="text" name="test" class="form-control social-fb" placeholder="Facebook">
-									<input type="text" name="test" class="form-control social-tw" placeholder="Twitter">
-									<input type="text" name="test" class="form-control social-in" placeholder="Instagram">
-									<input type="text" name="test" class="form-control social-yo" placeholder="Youtube">
-									<input type="text" name="test" class="form-control social-vi" placeholder="Vimeo">
-									<input type="text" name="test" class="form-control social-pi" placeholder="Pinterest">
+									<input type="text" name="test" id="socialFb" class="form-control social-fb" placeholder="Facebook">
+									<input type="text" name="test" id="socialTw" class="form-control social-tw" placeholder="Twitter">
+									<input type="text" name="test" id="socialIn" class="form-control social-in" placeholder="Instagram">
+									<input type="text" name="test" id="socialYo" class="form-control social-yo" placeholder="Youtube">
+									<input type="text" name="test" id="socialVi" class="form-control social-vi" placeholder="Vimeo">
+									<input type="text" name="test" id="socialPi" class="form-control social-pi" placeholder="Pinterest">
 								</div>
 
 
@@ -145,7 +177,7 @@
 						<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 							<div class="step-content-wrap">
 
-								<h2>In hac habitasse platea dictumst.</h2>
+								<h2>Show us what you're all about!</h2>
 
 								<div class="form-group">
 									<label for="test">Upload some photos of your business!</label>
@@ -262,7 +294,7 @@
 									<p class="sub-label address1">Address Line 1</p>
 									<input type="text" name="address1" id="address1" class="form-control">
 									<p class="sub-label">Address Line 2</p>
-									<input type="text" name="address2" class="form-control">
+									<input type="text" name="address2" id="address2" class="form-control">
 
 									<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8 no-padding-left">
 										<p class="sub-label city">City</p>
@@ -279,7 +311,7 @@
 									</div>
 									<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 no-padding-left no-padding-right">
 										<p class="sub-label">ZIP/Postal Code</p>
-										<input type="text" name="test" class="form-control">
+										<input type="text" name="zip" id="zip" class="form-control">
 									</div>
 
 									<label for="phone" class="phone">Phone</label>
@@ -316,7 +348,17 @@
 								</div>
 
 								<div class="checkbox step7-check">
-									<label><input type="checkbox" value=""><span>Smartsite & Maintenance <br><small>Prices renew monthly</small></span></label>
+									<label>
+										<input type="checkbox" value="">
+										<span>Smartsite & Maintenance <br><small>Prices renew monthly</small></span>
+									</label>
+								</div>
+
+								<div class="checkbox step7-check">
+									<label>
+										<input type="checkbox" value="" id="terms-services">
+										<span>$79/month <br><small>I agree to the terms of service</small></span>
+									</label>
 								</div>
 
 							</div>
@@ -339,28 +381,22 @@
 		</div>
 	</div>
 
-
-
-	<!-- Modal -->
 	<div id="dataModal" class="modal fade" role="dialog">
 		<div class="modal-dialog modal-md">
 
-			<!-- Modal content-->
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">Modal Header</h4>
+					<h4 class="modal-title">Terms of service</h4>
 				</div>
-				<div class="modal-body">
-					<p>Some text in the modal.</p>
+				<div class="modal-body terms-services-content">
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </p>
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 				</div>
 			</div>
-
 		</div>
 	</div>
-
 
 <?php get_footer();?>

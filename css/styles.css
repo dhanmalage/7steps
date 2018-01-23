@@ -11,6 +11,9 @@
     z-index: 90;
     background-color: #ffffff;
 }
+.navbar-header .navbar-toggle .icon-bar {
+    background-color: #6170a2;
+}
 .steps-home{
     position: fixed;
     left: 0px;
@@ -93,6 +96,7 @@ a.btn-start:hover, a.btn-start:focus{
     padding: 10px;
     border-radius: 20px;
     line-height: 45px;
+    white-space: nowrap;
 }
 .step-content-wrap .industry-buttons span:hover{
     color: #ffffff;
@@ -232,7 +236,7 @@ a.btn-start:hover, a.btn-start:focus{
     margin: 10px 20px 10px 0;
     position: relative;
 }
-.file-upload-list .files div a.image-cancel{
+.file-upload-list .files div span.image-cancel{
     top: -3px;
     right: -7px;
     text-decoration: none;
@@ -242,6 +246,7 @@ a.btn-start:hover, a.btn-start:focus{
     position: absolute;
     line-height: 1;
     padding: 0px 4px;
+    cursor: pointer;
 }
 .field-error{
     border-color: #a94442 !important;
@@ -320,12 +325,24 @@ a.btn-start:hover, a.btn-start:focus{
 .sw-theme-default .navbar .navbar-btn .disabled{
     display: none;
 }
-
+.terms-services-content p{
+    color: #666;
+}
 /* ****** responsive ******* */
 
 @media screen and (min-width: 768px){
     .step-image-wrap img{
         max-width: 80%;
         margin: auto;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .steps-home{
+        overflow: auto;
+        padding-bottom: 60px;
+    }
+    .sw-theme-default ul.step-anchor li {
+        display: inline-block;
     }
 }
